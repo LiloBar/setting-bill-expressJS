@@ -1,17 +1,29 @@
 {
-  "name": "setting-bill-expressJS",
+  "name": "settings-bill-expressjs",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![Build Status](https://travis-ci.org/LiloBar/setting-bill-expressJS.svg?branch=master)](https://travis-ci.org/LiloBar/setting-bill-expressJS)",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha"
+  "directories": {
+    "test": "test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiloBar/setting-bill-expressJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiloBar/setting-bill-expressJS/issues"
+  },
+  "homepage": "https://github.com/LiloBar/setting-bill-expressJS#readme"
 }
