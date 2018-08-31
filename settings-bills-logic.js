@@ -10,7 +10,6 @@ module.exports = function SettingsWithBill() {
 
 
   let list = [];
-  let temp = [];
 
   //logic function
   function settingsBill(billText) {
@@ -32,7 +31,7 @@ module.exports = function SettingsWithBill() {
 
     list.push({
       type: billText,
-      cost: getCostCall,
+      cost: getCostCall(),
       timestamp: new Date()
     });
 
@@ -46,7 +45,7 @@ module.exports = function SettingsWithBill() {
 
         list.push({
           type: billText,
-          cost: getCostSms,
+          cost: getCostSms(),
           timestamp: new Date()
         });
       }
@@ -74,8 +73,18 @@ module.exports = function SettingsWithBill() {
           const action = list[index];
           if (action.type === type) {
               
-              filteredActions.push(action);
+              filteredActions.push(actions);
           }
+
+          if (action.type === 'sms') {
+              
+            filteredActions.push(actions);
+        }
+
+        if (action.type === 'call') {
+              
+          filteredActions.push(actions);
+      }
       }
 
       return filteredActions;
@@ -151,11 +160,14 @@ module.exports = function SettingsWithBill() {
       }
   }
 
-  function filter(list) {
-  
-  if(costType === list[i].type){
-    temp.push(list[i]);
+  function filter(callOrSms) {
+  var temp = [];
+  for(var i = 0; i < list.length; i++){
+    if(list[i].type === callOrSms){
+      temp.push(list[i]);
+    }
   }
+  return temp;
 }
   
 
@@ -169,7 +181,7 @@ module.exports = function SettingsWithBill() {
       warningLevel,
       criticalLevel,
       myColor,
-      temp
+      filter
     };
   }
 
@@ -203,6 +215,8 @@ module.exports = function SettingsWithBill() {
     action,
     reset,
     myColor, 
+    actionsFor,
+    filter
 
   };
 };

@@ -5,11 +5,6 @@ const app = express();
 
 // var moment = require('moment');
 
-
-
-
-
-
 let settingsFunction = require('./settings-bills-logic.js');
 const settings = settingsFunction();
 
@@ -84,20 +79,23 @@ app.get('/actions', function (req, res) {
 
 
 app.get('/actions/:act', function (req, res) {
+
+
+   //let setBill= settings.calcBill(req.body.actionType);
     let costType = req.params.act;
 
-    let cost = 0;
-    //lookup cost for costType
-    if (costType === 'sms') {
-        cost = settings.smsCost;
-    } else if (costType === 'call') {
-        cost = settings.callCost;
-    }
+    // let cost = 0;
+    // // cost for costType
+    // if (costType === 'sms') {
+    //     cost = settings.smsCost;
+    // } else if (costType === 'call') {
+    //     cost = settings.callCost;
+    // }
 
 
-    res.render('cost', {
-        costType,
-        cost,
+    res.render('actions', {
+        // costType,
+        // cost,
         actions : settings.filter(costType)
     });
 });
